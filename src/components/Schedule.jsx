@@ -24,19 +24,19 @@ import { addDoc, collection } from "firebase/firestore";
 const scheduleItems = [
   { time: "09:00 AM", activity: "Arrival of Guest/Red Carpet (Be camera ready)" },
   { time: "09:30 AM", activity: "National Anthem/School Anthem" },
-  { time: "09:45 AM", activity: "Procecssion and Presentation of Graduates" },
-  { time: "10:30 AM", activity: "Opening Prayer" },
-  { time: "01:00 PM", activity: "Welcome Address By Head Of Upper School: Mr: George Ibit" },
-  { time: "12:00 PM", activity: "Graduation Remarks by the key note speaker:" },
-  { time: "12:00 PM", activity: "Interlude" },
-  { time: "03:00 PM", activity: "Sponsor Space" },
-  { time: "03:00 PM", activity: "Presentation of Staff Awards" },
-  { time: "03:00 PM", activity: "Valedictorian Speech" },
-  { time: "03:00 PM", activity: "Sponsor Space" },
-  { time: "03:00 PM", activity: "Cutting of Graduation Cake/Photographs" },
-  { time: "03:00 PM", activity: "Closing Remark/Announcements" },
-  { time: "03:00 PM", activity: "The National Pledge" },
-  { time: "03:00 PM", activity: "Refreshment" },
+  { time: "09:40 AM", activity: "Procecssion and Presentation of Graduates" },
+  { time: "10:00 AM", activity: "Opening Prayer" },
+  { time: "10:10 AM", activity: "Welcome Address By Head Of Upper School: Mr: George Ibit" },
+  { time: "10:15 AM", activity: "Graduation Remarks by the key note speaker:" },
+  { time: "10:45 AM", activity: "Interlude" },
+  { time: "10:50 AM", activity: "Sponsor Space" },
+  { time: "11:00 AM", activity: "Presentation of Staff Awards" },
+  { time: "11:45 AM", activity: "Valedictorian Speech" },
+  { time: "12:00 PM", activity: "Sponsor Space" },
+  { time: "12:10 PM", activity: "Cutting of Graduation Cake/Photographs" },
+  { time: "12:20 PM", activity: "Closing Remark/Announcements" },
+  { time: "12:25 PM", activity: "The National Pledge" },
+  { time: "12:30 PM", activity: "Refreshment" },
 ];
 
 const Schedule = () => {
@@ -109,8 +109,8 @@ const Schedule = () => {
           <React.Fragment key={index}>
             <ListItem>
               <ListItemText
-                primary={item.time}
-                secondary={item.activity}
+                primary={item.activity}
+                secondary={item.time}
                 primaryTypographyProps={{ fontWeight: "bold" }}
               />
             </ListItem>
