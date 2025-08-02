@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import About from "./components/About";
+// import About from "./components/About";
 import Schedule from "./components/Schedule";
 import Footer from "./components/Footer";
 import Container from "@mui/material/Container";
@@ -11,7 +11,7 @@ function App() {
     <Box>
       <Header />
       <Container maxWidth="md">
-        <About />
+        {/* <About /> */}
         <Schedule />
       </Container>
       <Footer />

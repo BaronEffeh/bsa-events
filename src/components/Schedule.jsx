@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Box,
@@ -39,9 +39,12 @@ const scheduleItems = [
   { time: "12:30 PM", activity: "Refreshment" },
 ];
 
+const EVENT_DATE = new Date("2025-08-09T06:00:00");
+
 const Schedule = () => {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
   const [formData, setFormData] = useState({
     name: "",
     role: "",
@@ -59,6 +62,26 @@ const Schedule = () => {
     recommend: "",
     comments: "",
   });
+
+  function getTimeRemaining() {
+    const now = new Date().getTime();
+    const distance = EVENT_DATE.getTime() - now;
+    if (distance <= 0) return { total: 0, days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      total: distance,
+      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((distance / (1000 * 60)) % 60),
+      seconds: Math.floor((distance / 1000) % 60),
+    };
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(getTimeRemaining());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -98,8 +121,59 @@ const Schedule = () => {
     }
   };
 
+  // Show countdown if the event has not started
+  if (timeLeft.total > 0) {
+    return (
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          color: "white",
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          p: 3,
+        }}
+      >
+        <Typography variant="h4" gutterBottom>
+          🎓 Our Graduation Event is Coming Soon!
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          Countdown to Event
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: "bold",
+            letterSpacing: "2px",
+            backgroundColor: "rgba(0,0,0,0.3)",
+            p: 2,
+            borderRadius: 3,
+            mt: 3,
+          }}
+        >
+          {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+        </Typography>
+      </Box>
+    );
+  }
+
+  // Event Day: Show schedule and feedback
   return (
     <Box sx={{ py: 5 }}>
+      <Box sx={{ py: 5, textAlign: "center" }}>
+          <Typography variant="h5" gutterBottom>
+            🎓 About the Event
+          </Typography>
+          <Typography variant="body1">
+            Join us for a day of inspiring talks, networking opportunities, and breakthrough innovations in tech, education, and business.
+          </Typography>
+      </Box>
       <Typography variant="h5" gutterBottom textAlign="center">
         Programme Schedule
       </Typography>
@@ -126,6 +200,7 @@ const Schedule = () => {
         </Button>
       </Box>
 
+      {/* Feedback Dialog */}
       <Dialog open={open} onClose={() => !isSubmitting && setOpen(false)} fullWidth maxWidth="md">
         <DialogTitle fontWeight="bold">📝 Feedback/Comments</DialogTitle>
         <DialogContent dividers sx={{ maxHeight: "75vh" }}>
