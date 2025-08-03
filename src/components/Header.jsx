@@ -9,6 +9,7 @@ const Header = () => {
       sx={{
         backgroundColor: "#bca04dff",
         py: { xs: 1, sm: 2 },
+        width: "100vw",
       }}
     >
       <Toolbar
