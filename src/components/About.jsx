@@ -1,14 +1,10 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
+import BSA7thGraduation from "../images/bsa-7th-graduation.png";
 
 const About = () => (
-  <Box sx={{ py: 5, textAlign: "center" }}>
-    <Typography variant="h5" gutterBottom>
-      About the Event
-    </Typography>
-    <Typography variant="body1">
-      Join us for a day of inspiring talks, networking opportunities, and breakthrough innovations in tech, education, and business.
-    </Typography>
+  <Box sx={{ textAlign: "center", mb: -10 }}>
+    <img src={BSA7thGraduation} alt="BSA 7th Graduation" height={250} width={250} />
   </Box>
 );
 

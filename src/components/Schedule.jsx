@@ -166,14 +166,14 @@ const Schedule = () => {
   // Event Day: Show schedule and feedback
   return (
     <Box sx={{ py: 5 }}>
-      <Box sx={{ py: 5, textAlign: "center" }}>
+      {/* <Box sx={{ py: 5, textAlign: "center" }}>
           <Typography variant="h5" gutterBottom>
             🎓 About the Event
           </Typography>
           <Typography variant="body1">
             Join us for a day of inspiring talks, networking opportunities, and breakthrough innovations in tech, education, and business.
           </Typography>
-      </Box>
+      </Box> */}
       <Typography variant="h5" gutterBottom textAlign="center">
         Programme Schedule
       </Typography>
@@ -195,7 +195,11 @@ const Schedule = () => {
 
       <Box textAlign="center" mt={4}>
         <Typography>Please leave a feedback/comment</Typography>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button 
+          variant="contained" 
+          onClick={() => setOpen(true)}
+          sx={{backgroundColor: "#bca04dff"}}
+        >
           Give Feedback
         </Button>
       </Box>
@@ -310,7 +314,11 @@ const Schedule = () => {
           <Button onClick={() => setOpen(false)} color="secondary" disabled={isSubmitting}>
             Cancel
           </Button>
-          <Button variant="contained" onClick={handleSubmit} disabled={isSubmitting}>
+          <Button 
+            variant="contained" 
+            onClick={handleSubmit} disabled={isSubmitting}
+            sx={{backgroundColor: "#bca04dff"}}
+          >
             {isSubmitting ? "Submitting..." : "Submit"}
           </Button>
         </DialogActions>

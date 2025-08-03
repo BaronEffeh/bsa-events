@@ -5,14 +5,15 @@ const Header = () => {
   return (
     <AppBar
       position="sticky"
-      color="primary"
+      // color="warning"
       sx={{
-        py: { xs: 1, sm: 2 }, // Reduce vertical padding on small screens
+        backgroundColor: "#bca04dff",
+        py: { xs: 1, sm: 2 },
       }}
     >
       <Toolbar
         sx={{
-          minHeight: { xs: 48, sm: 64 }, // Reduce toolbar height on small screens
+          minHeight: { xs: 48, sm: 64 },
         }}
       >
         <Box sx={{ flexGrow: 1, textAlign: "center" }}>
@@ -22,7 +23,7 @@ const Header = () => {
             gutterBottom
             mt={1}
             sx={{
-              fontSize: { xs: "1.25rem", sm: "2rem" }, // Smaller font on small screens
+              fontSize: { xs: "1.25rem", sm: "2rem" },
             }}
           >
             Britarch Schools, Abuja
@@ -30,7 +31,7 @@ const Header = () => {
           <Typography
             variant="h5"
             sx={{
-              fontSize: { xs: "1rem", sm: "1.5rem" }, // Adjust font size responsively
+              fontSize: { xs: "1rem", sm: "1.5rem" },
             }}
           >
             7th Graduation & Award Ceremony
