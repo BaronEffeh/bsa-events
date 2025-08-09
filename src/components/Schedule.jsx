@@ -22,27 +22,28 @@ import { db } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 const scheduleItems = [
-  { activity: "Arrival of Guest/Red Carpet (Be camera ready)", facilitator: "Special guest/Graduands/Parents/Staff" },
-  { activity: "National Anthem/School Anthem", facilitator: "All Participants" },
+  { activity: "Arrival of Guests/Red Carpet (Be camera ready)", facilitator: "Special guests/Graduands/Parents/Staff" },
+  { activity: "National Anthem/School Anthem", facilitator: "All Attendees" },
   { activity: "Procecssion and Presentation of Graduates", facilitator: "Graduands" },
   { activity: "Opening Prayer", facilitator: "..." },
   { activity: "Welcome Address By Head Of Upper School", facilitator: "Mr. George Ibit" },
-  { activity: "Graduation Remarks by the key note speaker", facilitator: "Mrs. Valentina Ofiepre Uchegbu Amnim Fasdir FCIPDM" },
+  { activity: "Graduation Remarks by the key note speaker", facilitator: "Mrs. Valentina Ofiepre Uchegbu AMNIM FASDIR FCIPDM" },
   { activity: "Interlude", facilitator: "MC/DJ" },
   { activity: "AMADEUS University", facilitator: "AMADEUS University Reprecsentative" },
-  { activity: "Book Launch", facilitator: "Princess Olanma Ndubuisi: Book Author" },
+  { activity: "Book Debut", facilitator: "Princess Olanma Ndubuisi: Book Author" },
   { activity: "Craydel Group", facilitator: "..." },
   { activity: "Presentation of Gifts and Certificates to the Graduands", facilitator: "..." },
+  { activity: "Presentation of Gifts By Class Of 2025", facilitator: "Graduands" },
   { activity: "a) Presentation of Class Project", facilitator: "Chukwudi Onoh" },
-  { activity: "b) Presentation of gift to Director", facilitator: "Usiere Umana" },
-  { activity: "c) Presentation of gifts for Teachers to Mr. George", facilitator: "Chetachi Udenze" },
+  { activity: "b) Presentation of Gift to Director", facilitator: "Usiere Umana" },
+  { activity: "c) Presentation of Gifts for Teachers to Mr. George", facilitator: "Chetachi Udenze" },
   { activity: "Presentation of Staff Awards", facilitator: "..." },
   { activity: "Valedictorian Speech", facilitator: "Valedictorian" },
   { activity: "Nile University of Nigeria", facilitator: "Nile University Reprecsentative" },
   { activity: "Cutting of Graduation Cake/Photographs", facilitator: "..." },
   { activity: "Closing Remark/Announcements", facilitator: "..." },
-  { activity: "The National Pledge", facilitator: "All Participants" },
-  { activity: "Refreshment", facilitator: "All Participants" },
+  { activity: "The National Pledge", facilitator: "All Attendees" },
+  { activity: "Refreshment", facilitator: "All Attendees" },
 ];
 
 const EVENT_DATE = new Date("2025-08-09T09:00:00");
