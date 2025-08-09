@@ -22,24 +22,30 @@ import { db } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 const scheduleItems = [
-  { time: "09:00 AM", activity: "Arrival of Guest/Red Carpet (Be camera ready)" },
-  { time: "09:30 AM", activity: "National Anthem/School Anthem" },
-  { time: "09:40 AM", activity: "Procecssion and Presentation of Graduates" },
-  { time: "10:00 AM", activity: "Opening Prayer" },
-  { time: "10:10 AM", activity: "Welcome Address By Head Of Upper School: Mr: George Ibit" },
-  { time: "10:15 AM", activity: "Graduation Remarks by the key note speaker:" },
-  { time: "10:45 AM", activity: "Interlude" },
-  { time: "10:50 AM", activity: "Sponsor Space" },
-  { time: "11:00 AM", activity: "Presentation of Staff Awards" },
-  { time: "11:45 AM", activity: "Valedictorian Speech" },
-  { time: "12:00 PM", activity: "Sponsor Space" },
-  { time: "12:10 PM", activity: "Cutting of Graduation Cake/Photographs" },
-  { time: "12:20 PM", activity: "Closing Remark/Announcements" },
-  { time: "12:25 PM", activity: "The National Pledge" },
-  { time: "12:30 PM", activity: "Refreshment" },
+  { activity: "Arrival of Guest/Red Carpet (Be camera ready)", facilitator: "Special guest/Graduands/Parents/Staff" },
+  { activity: "National Anthem/School Anthem", facilitator: "All Participants" },
+  { activity: "Procecssion and Presentation of Graduates", facilitator: "Graduands" },
+  { activity: "Opening Prayer", facilitator: "..." },
+  { activity: "Welcome Address By Head Of Upper School:", facilitator: "Mr. George Ibit" },
+  { activity: "Graduation Remarks by the key note speaker:", facilitator: "Mrs. Valentina Ofiepre Uchegbu Amnim Fasdir FCIPDM" },
+  { activity: "Interlude", facilitator: "MC/DJ" },
+  { activity: "AMADEUS University", facilitator: "AMADEUS University Reprecsentative" },
+  { activity: "Book Launch", facilitator: "Book Author" },
+  { activity: "Craydel Group", facilitator: "..." },
+  { activity: "Presentation of Gifts and Certificates to the Graduands", facilitator: "..." },
+  { activity: "a) Presentation of Class Project:", facilitator: "Chukwudi Onoh" },
+  { activity: "b) Presentation of gift to Director:", facilitator: "Usiere Umana" },
+  { activity: "c) Presentation of gifts for Teachers to Mr. George:", facilitator: "Chetachi Udenze" },
+  { activity: "Presentation of Staff Awards", facilitator: "..." },
+  { activity: "Valedictorian Speech", facilitator: "Valedictorian" },
+  { activity: "Nile University of Nigeria", facilitator: "Nile University Reprecsentative" },
+  { activity: "Cutting of Graduation Cake/Photographs", facilitator: "..." },
+  { activity: "Closing Remark/Announcements", facilitator: "..." },
+  { activity: "The National Pledge", facilitator: "All Participants" },
+  { activity: "Refreshment", facilitator: "All Participants" },
 ];
 
-const EVENT_DATE = new Date("2025-08-09T06:00:00");
+const EVENT_DATE = new Date("2025-08-09T09:00:00");
 
 const Schedule = () => {
   const [open, setOpen] = useState(false);
@@ -184,7 +190,7 @@ const Schedule = () => {
             <ListItem>
               <ListItemText
                 primary={item.activity}
-                secondary={item.time}
+                secondary={item.facilitator}
                 primaryTypographyProps={{ fontWeight: "bold" }}
               />
             </ListItem>
@@ -298,7 +304,7 @@ const Schedule = () => {
 
           {/* E. Overall Experience */}
           <Typography variant="subtitle1" mt={3} fontWeight="bold">E. Overall Experience</Typography>
-          <TextField fullWidth label="What was your favorite part?" name="favoritePart" multiline minRows={2} value={formData.favoritePart} onChange={handleChange} margin="dense" />
+          <TextField fullWidth label="What was your favorite part in the event?" name="favoritePart" multiline minRows={2} value={formData.favoritePart} onChange={handleChange} margin="dense" />
           <TextField fullWidth label="What area(s) need improvement?" name="improvementAreas" multiline minRows={2} value={formData.improvementAreas} onChange={handleChange} margin="dense" />
           <FormControl fullWidth margin="dense">
             <FormLabel>Would you attend or recommend this event?</FormLabel>
