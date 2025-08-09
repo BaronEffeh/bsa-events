@@ -45,7 +45,7 @@ const scheduleItems = [
   { activity: "Refreshment", facilitator: "All Participants" },
 ];
 
-const EVENT_DATE = new Date("2025-08-08T09:00:00");
+const EVENT_DATE = new Date("2025-08-09T09:00:00");
 
 const Schedule = () => {
   const [open, setOpen] = useState(false);
